@@ -1,4 +1,4 @@
-package com;
+package com.openshy4j;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,8 +6,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @EnableJpaAuditing
 @SpringBootApplication
-public class openshy4jApplication {
+public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(openshy4jApplication.class, args);
+        SpringApplication.run(Application.class, args);
+
     }
 }
