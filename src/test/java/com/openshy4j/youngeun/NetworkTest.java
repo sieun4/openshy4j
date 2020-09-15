@@ -13,5 +13,4 @@ public class NetworkTest {
     System.out.println("master made");
     System.out.println("whatthegit");
   }
-
 }
