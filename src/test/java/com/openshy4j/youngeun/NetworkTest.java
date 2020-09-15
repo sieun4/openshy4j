@@ -8,6 +8,6 @@ public class NetworkTest {
 
   @Test
   public void 테스트() {
-    System.out.println("goood");
+    System.out.println("end");
   }
 }
