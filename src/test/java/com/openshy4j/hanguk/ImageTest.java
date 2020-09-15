@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class ImageTest {
 
   @Test
-  public void 테스트(){
+  public void 테스트2(){
     System.out.println("test");
   }
 
