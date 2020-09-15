@@ -10,6 +10,7 @@ public class NetworkTest {
   public void 테스트() {
     System.out.println("son test");
     System.out.println("made in branch");
+    System.out.println("merge master");
   }
 
 }
