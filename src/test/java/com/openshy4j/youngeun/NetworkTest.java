@@ -10,6 +10,7 @@ public class NetworkTest {
   public void 테스트() {
     System.out.println("one more test");
     System.out.println("branch made");
+    System.out.println("master made");
   }
 
 }
