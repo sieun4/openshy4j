@@ -11,6 +11,6 @@ public class Test_openstack {
     }
     @Test
     public void 배고프다(){
-        System.out.println("배고픔");
+        System.out.println("배고픔123123");
     }
 }
