@@ -6,4 +6,3 @@
             Environment env;
             필드 선언
        3.  env.getProperty("properties에 선언된 필드명") => String 형태로 반환됩니다.
-  
