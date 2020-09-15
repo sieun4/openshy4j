@@ -9,4 +9,8 @@ public class Test_openstack {
     public void 테스트(){
         System.out.println("hello world");
     }
+    @Test
+    public void 배고프다(){
+        System.out.println("배고픔");
+    }
 }
