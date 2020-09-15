@@ -38,8 +38,6 @@ dependencies { // 프로젝트 개발에 필요한 의존성 선언
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
     compile('org.pacesys:openstack4j-core:3.2.0')
-    compile group: 'org.pacesys.openstack4j.connectors', name: 'openstack4j-jersey2', version: '3.2.0'
-
-
-
+    compile('org.pacesys.openstack4j.connectors:openstack4j-jersey2:3.2.0')
+    implementation 'org.pacesys:openstack4j:3.2.0'
 }
