@@ -1,6 +1,6 @@
 buildscript { // 의존성 관리를 위한 설정
     ext { // build.gradle에서 사용하는 전역변수 설정
-        springBootVersion = '2.1.7.RELEASE'
+        springBootVersion = '2.3.3.RELEASE'
     }
     repositories { // 어떤 원격 저장소에서 받을지
         mavenCentral()
