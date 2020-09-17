@@ -5,13 +5,13 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-//@RunWith(SpringRunner.class)
+@RunWith(SpringRunner.class)
 @SpringBootTest
 public class ImageTest {
 
   @Test
-  public void 테스트2(){
-    System.out.println("test");
+  public void 테스트12(){
+    System.out.println("test123");
   }
 
 }
