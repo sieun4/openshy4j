@@ -1,6 +1,7 @@
 package com.openshy4j.web.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -12,9 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-@ToString
+@Data
 public class ImageCreateRequestDto {
 
   @NonNull
