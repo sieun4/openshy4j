@@ -1,7 +1,9 @@
 package com.openshy4j.web;
 
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.openstack4j.api.Builders;
 import org.openstack4j.api.OSClient;
 import org.openstack4j.model.common.Identifier;
@@ -9,15 +11,25 @@ import org.openstack4j.model.storage.block.Volume;
 import org.openstack4j.openstack.OSFactory;
 import org.springframework.web.bind.annotation.*;
 
-
-import javax.ws.rs.Path;
+import java.util.HashMap;
 import java.util.List;
+
+@Setter
+@Getter
+class Cinder {
+    String name;
+    String description;
+    int size;
+    String imageID;
+}
 
 @RequiredArgsConstructor
 @RestController
 public class CinderController {
 
-    public OSClient.OSClientV3 make_Token(){
+
+
+    public OSClient.OSClientV3 createToken(){
         Identifier domainIdentifier = Identifier.byId("default");
         OSClient.OSClientV3 os = OSFactory.builderV3()
                 .endpoint("http://192.168.0.39:5000/v3")
@@ -28,65 +40,62 @@ public class CinderController {
     }
 
     @GetMapping("/cinder")
-    public List<? extends Volume> list_Volume() {
-        OSClient.OSClientV3 os = make_Token();
+    public List<? extends Volume> getVolumes() {
+        OSClient.OSClientV3 os = createToken();
         List<? extends Volume> volumes = os.blockStorage().volumes().list();
         return volumes;
     }
 
     @GetMapping("/cinder/{id}")
-    public Volume get_Volume(@PathVariable String id) {
-        OSClient.OSClientV3 os = make_Token();
-        Volume v = os.blockStorage().volumes().get(id);
-        return v;
+    public Volume getVolume(@PathVariable String id) {
+        OSClient.OSClientV3 os = createToken();
+        Volume volume = os.blockStorage().volumes().get(id);
+        return volume;
     }
 
     @PostMapping("/cinder/volume")
-    public Volume create_Volume(@RequestParam String name,
-                                @RequestParam String des,
-                                @RequestParam int size) {
-        OSClient.OSClientV3 os = make_Token();
-        Volume v = os.blockStorage().volumes()
+    public Volume createVolume(@RequestBody Cinder cinder) {
+        System.out.println(cinder);
+        OSClient.OSClientV3 os = createToken();
+        Volume volume = os.blockStorage().volumes()
                 .create(Builders.volume()
-                        .name(name)
-                        .description(des)
-                        .size(size)
+                        .name(cinder.name)
+                        .description(cinder.description)
+                        .size(cinder.size)
                         .build()
                 );
-        return v;
+        return volume;
     }
 
     @PostMapping("/cinder/boot")
-    public Volume create_BootVolume(@RequestParam String name,
-                                    @RequestParam String des,
-                                    @RequestParam String ImageID) {
-        OSClient.OSClientV3 os = make_Token();
-        Volume v= os.blockStorage().volumes()
+    public Volume createBootVolume(@RequestBody Cinder cinder) {
+        OSClient.OSClientV3 os = createToken();
+        Volume volume = os.blockStorage().volumes()
                 .create(Builders.volume()
-                        .name(name)
-                        .description(des)
-                        .imageRef(ImageID)
+                        .name(cinder.name)
+                        .description(cinder.description)
+                        .imageRef("fc82ac33-899f-4afb-a250-1d1fc099fdc0")
                         .bootable(true)
                         .build()
                 );
-        return v;
+        return volume;
     }
 
     @DeleteMapping("/cinder/{id}")
-    public String delete_Volume(@PathVariable String volumeId) {
-        OSClient.OSClientV3 os = make_Token();
+    public String deleteVolume(@PathVariable String volumeId) {
+        OSClient.OSClientV3 os = createToken();
         os.blockStorage().volumes().delete(volumeId);
         return "성공적으로 삭제되었습니다.";
     }
 
     @PostMapping("/cinder/{id}")
-    public String update_Volume(@PathVariable String id,
-                                @RequestParam String name,
-                                @RequestParam String des) {
-        OSClient.OSClientV3 os = make_Token();
+    public String updateVolume(@PathVariable String id,
+                                @RequestBody String name,
+                                @RequestBody String description) {
+        OSClient.OSClientV3 os = createToken();
         os.blockStorage()
                 .volumes()
-                .update(id, name, des);
+                .update(id, name, description);
         return "성공적으로 수정되었습니다.";
     }
 
