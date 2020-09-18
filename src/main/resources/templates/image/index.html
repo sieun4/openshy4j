@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div th:if="${message}">
+  <h3 th:text="${message}"/>
+</div>
+<form action="#" method="POST" enctype="multipart/form-data" th:action="@{/v2/images/createImageRequest}">
+  <input type="text" name="name" placeholder="이미지 이름"></br>
+  <input type="text" name="description" placeholder="이미지 설명"></br>
+  <input type="file" name="file"> </br>
+  <input list="diskFormatList" name="diskFormat">
+  <datalist id="diskFormatList" autocomplete="off">
+    <option label="ISO - 광학 디스크 이미지 (Optical Disk Image)" value="ISO">
+    <option label="QCOW2 - QEMU 에뮬레이터 (Emulator)" value="QCOW2">
+    <option label="VDI - 가상 디스크 이미지 (Virtual Disk Image)" value="VDI">
+    <option label="VHD - 가상 하드 디스크 (Virtual Hard Disk)" value="VHD">
+    <option label="VMDK - 가상 머신 디스크 (Virtual Machine Disk)" value="VMDK">
+    <option label="AKI - Amazon 커널 이미지 (Kernel Image)" value="AKI">
+    <option label="AMI - Amazon 머신 이미지 (Machine Image)" value="AMI">
+    <option label="ARI - Amazon 램디스크 이미지 (Ramdisk Image)" value="ARI">
+  </datalist>
+  <input type="submit" value="생성">
+</form>
+<h2>이미지 목록</h2>
+<div th:each="image : ${listImage}">
+  <div><a th:href="@{/v2/images/updateImage/{id}(id=${image.id})}"><span th:text="${image.name}"></span></a></div>
+</div>
+</body>
+
+
+
+</html>

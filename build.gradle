@@ -26,21 +26,19 @@ repositories {
     jcenter()
 }
 
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    runtimeOnly 'com.h2database:h2'
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
-    compile group: 'com.github.openstack4j.core', name: 'openstack4j-core', version: '3.8'
-    compile group: 'com.github.openstack4j.core.connectors', name: 'openstack4j-httpclient', version: '3.8'
+dependencies { // 프로젝트 개발에 필요한 의존성 선언
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('com.h2database:h2')
+    compileOnly("org.projectlombok:lombok")
+    testCompileOnly("org.projectlombok:lombok")
+    annotationProcessor("org.projectlombok:lombok")
+    testAnnotationProcessor("org.projectlombok:lombok")
+    compile('org.springframework.boot:spring-boot-starter-mustache')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    compile('org.pacesys:openstack4j-core:3.2.0')
+    compile('org.pacesys.openstack4j.connectors:openstack4j-jersey2:3.2.0')
     implementation 'org.pacesys:openstack4j:3.2.0'
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.11.2'
-}
-test {
-    useJUnitPlatform()
+
 }
