@@ -1,4 +1,4 @@
-package com.openshy4j.web.dto;
+package com.openshy4j.web.Dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
