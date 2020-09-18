@@ -1,6 +1,6 @@
 package com.openshy4j.service;
 
-import com.openshy4j.web.dto.ImageCreateRequestDto;
+import com.openshy4j.web.Dto.ImageCreateRequestDto;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;

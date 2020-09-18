@@ -2,7 +2,7 @@ package com.openshy4j.web;
 
 import com.openshy4j.service.IdentityService;
 import com.openshy4j.service.ImageService;
-import com.openshy4j.web.dto.ImageCreateRequestDto;
+import com.openshy4j.web.Dto.ImageCreateRequestDto;
 import java.io.IOException;
 import lombok.RequiredArgsConstructor;
 import org.openstack4j.api.Builders;
