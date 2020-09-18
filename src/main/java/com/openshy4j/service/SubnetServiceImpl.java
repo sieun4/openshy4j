@@ -1,6 +1,6 @@
 package com.openshy4j.service;
 
-import com.openshy4j.web.SubnetDto;
+import com.openshy4j.web.Dto.SubnetDto;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.openstack4j.api.Builders;

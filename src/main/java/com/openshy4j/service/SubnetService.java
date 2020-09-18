@@ -1,10 +1,8 @@
 package com.openshy4j.service;
 
-import com.openshy4j.web.NetworkDto;
-import com.openshy4j.web.SubnetDto;
+import com.openshy4j.web.Dto.SubnetDto;
 import java.util.List;
 import org.openstack4j.model.identity.v3.Token;
-import org.openstack4j.model.network.Network;
 import org.openstack4j.model.network.Subnet;
 
 public interface SubnetService {

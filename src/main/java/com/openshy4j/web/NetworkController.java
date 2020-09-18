@@ -2,6 +2,7 @@ package com.openshy4j.web;
 
 import com.openshy4j.service.IdentityServiceImpl;
 import com.openshy4j.service.NetworkServiceImpl;
+import com.openshy4j.web.Dto.NetworkDto;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.openstack4j.model.network.Network;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -29,7 +29,7 @@ public class NetworkController {
   }
 
   @GetMapping("/{id}")
-  public Network getNetwork(@RequestParam String id) {
+  public Network getNetwork(@PathVariable String id) {
     return networkServiceImpl.getNetwork(id, identityServiceImpl.getToken());
   }
 

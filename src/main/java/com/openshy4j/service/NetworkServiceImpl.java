@@ -1,7 +1,7 @@
 package com.openshy4j.service;
 
 import static org.openstack4j.api.OSClient.OSClientV3;
-import com.openshy4j.web.NetworkDto;
+import com.openshy4j.web.Dto.NetworkDto;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.openstack4j.api.Builders;
