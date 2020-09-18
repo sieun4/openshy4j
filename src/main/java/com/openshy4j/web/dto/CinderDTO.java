@@ -1,10 +1,10 @@
-package com.openshy4j.web.dto;
+package com.openshy4j.web.Dto;
 
 import lombok.*;
 
 
 @Data
-public class CinderDTO {
+public class CinderDto {
 
     @Setter
     @Getter
