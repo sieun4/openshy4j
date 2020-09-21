@@ -3,7 +3,6 @@ package com.openshy4j.web;
 import static org.openstack4j.api.OSClient.OSClientV3;
 
 import lombok.RequiredArgsConstructor;
-import org.openstack4j.api.OSClient;
 import org.openstack4j.model.common.Identifier;
 import org.openstack4j.openstack.OSFactory;
 import org.springframework.web.bind.annotation.RestController;

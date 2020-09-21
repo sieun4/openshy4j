@@ -1,21 +1,18 @@
 package com.openshy4j.service;
 
-import java.util.HashMap;
+import com.openshy4j.web.Dto.FlavorDto;
 import java.util.List;
-import org.openstack4j.api.OSClient;
-import org.openstack4j.api.OSClient.OSClientV3;
 import org.openstack4j.model.compute.Flavor;
+import org.openstack4j.model.identity.v3.Token;
 
 public interface FlavorService {
 
-  public List<? extends Flavor> findAll(OSClient.OSClientV3 token);
+  public List<? extends Flavor> getFlavors(Token token);
 
-  public Flavor create(OSClient.OSClientV3 token, HashMap<String, Object> values);
+  public Flavor create(Token token, FlavorDto flavorDto);
 
-  public Flavor findById(OSClient.OSClientV3 token, String flavorId);
+  public Flavor getFlavor(Token token, String flavorId);
 
-  public void delete(OSClient.OSClientV3 token, String flavorId);
-
-  public Flavor update(OSClientV3 osClient, String id);
+  public void delete(Token token, String flavorId);
 
 }

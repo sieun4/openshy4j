@@ -1,47 +1,50 @@
 package com.openshy4j.service;
 
-import java.util.HashMap;
+import com.openshy4j.web.Dto.FlavorDto;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.openstack4j.api.Builders;
 import org.openstack4j.api.OSClient.OSClientV3;
 import org.openstack4j.model.compute.Flavor;
+import org.openstack4j.model.identity.v3.Token;
+import org.openstack4j.openstack.OSFactory;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
-@Service("flavorService")
+@Service
 public class FlavorServiceImpl implements FlavorService {
 
   @Override
-  public List<? extends Flavor> findAll(OSClientV3 token) {
-    return token.compute().flavors().list();
+  public List<? extends Flavor> getFlavors(Token token) {
+
+    OSClientV3 osClientV3 = OSFactory.clientFromToken(token);
+
+    return osClientV3.compute().flavors().list();
   }
 
   @Override
-  public Flavor create(OSClientV3 token, HashMap<String, Object> values) {
-    org.openstack4j.model.compute.Flavor flavor = Builders.flavor()
-        .name((String) values.get("name"))
-        .ram((Integer) values.get("ram"))
-        .disk((Integer) values.get("disk"))
-        .vcpus((Integer) values.get("vcpus"))
+  public Flavor create(Token token, FlavorDto flavorDto) {
+    OSClientV3 osClientV3 = OSFactory.clientFromToken(token);
+    Flavor flavor = Builders.flavor()
+        .name(flavorDto.getName())
+        .ram(flavorDto.getRam())
+        .disk(flavorDto.getDisk())
+        .vcpus(flavorDto.getVcpu())
         .build();
 
-    return token.compute().flavors().create(flavor);
+    return osClientV3.compute().flavors().create(flavor);
   }
 
   @Override
-  public Flavor findById(OSClientV3 token, String flavorId) {
-    return token.compute().flavors().get(flavorId);
+  public Flavor getFlavor(Token token, String flavorId) {
+    OSClientV3 osClientV3 = OSFactory.clientFromToken(token);
+    return osClientV3.compute().flavors().get(flavorId);
   }
 
   @Override
-  public void delete(OSClientV3 token, String flavorId) {
-    token.compute().flavors().delete(flavorId);
-  }
-
-  @Override
-  public Flavor update(OSClientV3 osClient, String id) {
-    return null;
+  public void delete(Token token, String flavorId) {
+    OSClientV3 osClientV3 = OSFactory.clientFromToken(token);
+    osClientV3.compute().flavors().delete(flavorId);
   }
 
 }
