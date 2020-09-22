@@ -5,7 +5,6 @@ import com.openshy4j.service.ImageService;
 import com.openshy4j.web.dto.ImageCreateRequestDto;
 import java.io.IOException;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
 import org.openstack4j.api.Builders;
 import org.openstack4j.api.OSClient.OSClientV3;
 import org.openstack4j.openstack.OSFactory;
@@ -47,12 +46,6 @@ public class ImageController {
   @PostMapping("/createImageRequest")
   public RedirectView createImage(@ModelAttribute("dto") ImageCreateRequestDto dto,
       RedirectAttributes redirectAttributes) throws IOException {
-    if(dto.getFile().getName().contains("1")){
-
-    }
-    if(dto.getFile().getName().isEmpty()){
-
-    }
     imageService.createImage(identityService.getToken(), dto);
     //ToDo 생성이 되었는지 에 대한 결과가 반환되어야할 것 같음.
     return new RedirectView("/v2/images");
