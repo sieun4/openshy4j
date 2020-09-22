@@ -16,8 +16,7 @@ public class RouterServiceImpl implements RouterService {
     @Override
     public List<? extends Router> getRouters(Token token) {
         OSClient.OSClientV3 os = OSFactory.clientFromToken(token);
-        List<? extends Router> routers = os.networking().router().list();
-        return routers;
+        return os.networking().router().list();
     }
 
     @Override

@@ -2,7 +2,7 @@ package com.openshy4j.web;
 
 import com.openshy4j.service.IdentityServiceImpl;
 import com.openshy4j.service.SubnetServiceImpl;
-import com.openshy4j.web.Dto.SubnetDto;
+import com.openshy4j.web.dto.SubnetDto;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.openstack4j.model.network.Subnet;

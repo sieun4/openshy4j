@@ -1,6 +1,6 @@
 package com.openshy4j.service;
 
-import com.openshy4j.web.Dto.SubnetDto;
+import com.openshy4j.web.dto.SubnetDto;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.openstack4j.api.Builders;
@@ -12,7 +12,6 @@ import org.openstack4j.openstack.OSFactory;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
 public class SubnetServiceImpl implements SubnetService {
 
   @Override

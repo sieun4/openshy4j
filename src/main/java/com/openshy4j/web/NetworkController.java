@@ -2,7 +2,7 @@ package com.openshy4j.web;
 
 import com.openshy4j.service.IdentityServiceImpl;
 import com.openshy4j.service.NetworkServiceImpl;
-import com.openshy4j.web.Dto.NetworkDto;
+import com.openshy4j.web.dto.NetworkDto;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.openstack4j.model.network.Network;

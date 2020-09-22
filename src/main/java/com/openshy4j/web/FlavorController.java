@@ -2,7 +2,7 @@ package com.openshy4j.web;
 
 import com.openshy4j.service.FlavorService;
 import com.openshy4j.service.IdentityService;
-import com.openshy4j.web.Dto.FlavorDto;
+import com.openshy4j.web.dto.FlavorDto;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.openstack4j.model.compute.Flavor;

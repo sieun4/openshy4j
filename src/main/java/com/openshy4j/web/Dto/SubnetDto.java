@@ -1,4 +1,4 @@
-package com.openshy4j.web.Dto;
+package com.openshy4j.web.dto;
 
 import lombok.*;
 

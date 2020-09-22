@@ -1,6 +1,6 @@
 package com.openshy4j.service;
 
-import com.openshy4j.web.Dto.FlavorDto;
+import com.openshy4j.web.dto.FlavorDto;
 import java.util.List;
 import org.openstack4j.model.compute.Flavor;
 import org.openstack4j.model.identity.v3.Token;

@@ -25,6 +25,7 @@ public class FloatingIpServiceImpl implements FloatingIpService{
     OSClientV3 osClientV3 = OSFactory.clientFromToken(token);
     return osClientV3.compute().floatingIps().allocateIP(pool).toBuilder().build();
   }
+
   @Override
   public void deleteFloatingIp(Token token, String id) {
     OSClientV3 osClientV3 = OSFactory.clientFromToken(token);
