@@ -39,7 +39,7 @@ public class VolumeServiceImpl implements VolumeService {
     }
 
     @Override
-    public Volume createBootVolume(Token token, String name, String description, String imageID) {
+    public Volume createBootVolume(Token token, String name, String description, int size, String imageID) {
         OSClient.OSClientV3 os = OSFactory.clientFromToken(token);
         Volume volume = os.blockStorage().volumes()
                 .create(Builders.volume()
@@ -47,6 +47,7 @@ public class VolumeServiceImpl implements VolumeService {
                         .description(description)
                         .imageRef(imageID)
                         .bootable(true)
+                        .size(10)
                         .build()
                 );
         return volume;

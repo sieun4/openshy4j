@@ -9,7 +9,7 @@ public interface VolumeService {
     List<? extends Volume> getVolumes(Token token);
     Volume getVolume(Token token, String volumeID);
     Volume createVolume(Token token, String name, String description, int size);
-    Volume createBootVolume(Token token, String name, String description, String imageID);
+    Volume createBootVolume(Token token, String name, String description, int size, String imageID);
     String deleteVolume(Token token, String volumeID);
     String updateVolume(Token token, String volumeID, String name, String description);
 }

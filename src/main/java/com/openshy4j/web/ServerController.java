@@ -35,9 +35,9 @@ public class ServerController {
         return serverServiceImpl.createBlockServer(identityServiceImpl.getToken(),  serverDto);
     }
 
-    @PutMapping("/server/action")
-    void actionServer(@PathVariable String serverId, @RequestBody ServerDto serverDto) {
-        serverServiceImpl.actionServer(identityServiceImpl.getToken(), serverId, serverDto);
+    @PutMapping("/server/{serverId}/action")
+    String actionServer(@PathVariable String serverId, @RequestBody ServerDto serverDto) {
+        return serverServiceImpl.actionServer(identityServiceImpl.getToken(), serverId, serverDto);
     }
 
     @GetMapping("/server/console/{serverId}")
@@ -46,7 +46,7 @@ public class ServerController {
     }
 
     @DeleteMapping("/server/{serverId}")
-    void deleteServer(@PathVariable String serverId) {
-        serverServiceImpl.deleteServer(identityServiceImpl.getToken(), serverId);
+    String deleteServer(@PathVariable String serverId) {
+        return serverServiceImpl.deleteServer(identityServiceImpl.getToken(), serverId);
     }
 }

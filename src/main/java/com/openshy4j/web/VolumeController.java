@@ -3,7 +3,7 @@ package com.openshy4j.web;
 
 import com.openshy4j.service.VolumeService;
 import com.openshy4j.service.IdentityService;
-import com.openshy4j.web.dto.CinderDto;
+import com.openshy4j.web.dto.VolumeDto;
 import lombok.RequiredArgsConstructor;
 import org.openstack4j.model.storage.block.Volume;
 import org.springframework.web.bind.annotation.*;
@@ -27,13 +27,13 @@ public class VolumeController {
     }
 
     @PostMapping("/volume")
-    public Volume createVolume(@RequestBody CinderDto.createVolume dto) {
+    public Volume createVolume(@RequestBody VolumeDto.createVolume dto) {
         return cinderService.createVolume(identityService.getToken(), dto.getName(), dto.getDescription(), dto.getSize());
     }
 
     @PostMapping("/volume/boot")
-    public Volume createBootVolume(@RequestBody CinderDto.createBootVolume dto) {
-        return cinderService.createBootVolume(identityService.getToken(), dto.getName(), dto.getDescription(), dto.getImageID());
+    public Volume createBootVolume(@RequestBody VolumeDto.createBootVolume dto) {
+        return cinderService.createBootVolume(identityService.getToken(), dto.getName(),dto.getDescription(), dto.getSize(), dto.getImageID());
     }
 
     @DeleteMapping("/volume/{volumeID}")
@@ -43,7 +43,7 @@ public class VolumeController {
     }
 
     @PutMapping("/volume/{volumeID}")
-    public String updateVolume(@PathVariable String volumeID, @RequestBody CinderDto.updateVolume dto) {
+    public String updateVolume(@PathVariable String volumeID, @RequestBody VolumeDto.updateVolume dto) {
         dto.setVolumeID(volumeID);
         cinderService.updateVolume(identityService.getToken(), dto.getVolumeID(), dto.getName(), dto.getDescription());
         return "성공적으로 수정되었습니다.";

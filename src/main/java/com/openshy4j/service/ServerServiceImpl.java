@@ -49,18 +49,26 @@ public class ServerServiceImpl implements ServerService{
     @Override
     public Server createBlockServer(Token token, ServerDto serverDto) {
         OSClientV3 os = OSFactory.clientFromToken(token);
+        Port port = os.networking().port().create(Builders.port()
+                .networkId(serverDto.getNetworkId())
+                .build());
         BlockDeviceMappingBuilder blockDeviceMappingBuilder = Builders.blockDeviceMapping()
                 .uuid(serverDto.getVolumeId())
                 .deviceName("/dev/vda")
                 .bootIndex(0);
-        ServerCreate sc = (ServerCreate) Builders.server().name(serverDto.getName()).blockDevice(blockDeviceMappingBuilder.build());
+        ServerCreate sc = Builders.server()
+                .name(serverDto.getName())
+                .addNetworkPort(port.getId())
+                .blockDevice(blockDeviceMappingBuilder.build())
+                .build();
         return os.compute().servers().boot(sc);
     }
 
     @Override
-    public void actionServer(Token token, String serverId, ServerDto serverDto) {
+    public String actionServer(Token token, String serverId, ServerDto serverDto) {
         OSClientV3 os = OSFactory.clientFromToken(token);
         os.compute().servers().action(serverId, Action.valueOf(serverDto.getAction()));
+        return serverDto.getAction();
     }
 
     @Override
@@ -70,8 +78,9 @@ public class ServerServiceImpl implements ServerService{
     }
 
     @Override
-    public void deleteServer(Token token, String serverId) {
+    public String deleteServer(Token token, String serverId) {
         OSClientV3 os = OSFactory.clientFromToken(token);
         os.compute().servers().delete(serverId);
+        return "삭제되었습니다.";
     }
 }

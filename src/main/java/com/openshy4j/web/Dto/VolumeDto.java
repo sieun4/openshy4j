@@ -4,7 +4,7 @@ import lombok.*;
 
 
 @Data
-public class CinderDto {
+public class VolumeDto {
 
     @Setter
     @Getter
@@ -31,6 +31,8 @@ public class CinderDto {
         private String name;
 
         private String description;
+
+        private int size;
 
         @NonNull
         private String imageID;
