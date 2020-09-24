@@ -10,4 +10,5 @@ public class ServerDto {
     private String volumeId;
     private String networkId;
     private String serverId;
+    private String action;
 }

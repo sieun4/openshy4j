@@ -13,7 +13,7 @@ public interface ServerService {
     Server getServer(Token token, String serverId);
     Server createServer(Token token, ServerDto serverDto);
     Server createBlockServer(Token token, ServerDto serverDto);
-    void actionServer(Token token, String serverId, Action action);
+    void actionServer(Token token, String serverId, ServerDto serverDto);
     VNCConsole consoleServer(Token token, String serverId);
     void deleteServer(Token token, String serverId);
 

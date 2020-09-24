@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CinderServiceImpl implements CinderService{
+public class VolumeServiceImpl implements VolumeService {
     @Override
     public List<? extends Volume> getVolumes(Token token) {
         OSClient.OSClientV3 os = OSFactory.clientFromToken(token);

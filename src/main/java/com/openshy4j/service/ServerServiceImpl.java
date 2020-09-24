@@ -13,9 +13,11 @@ import org.openstack4j.model.compute.builder.BlockDeviceMappingBuilder;
 import org.openstack4j.model.identity.v3.Token;
 import org.openstack4j.model.network.Port;
 import org.openstack4j.openstack.OSFactory;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ServerServiceImpl implements ServerService{
     @Override
     public List<? extends Server> getServers(Token token) {
@@ -56,10 +58,9 @@ public class ServerServiceImpl implements ServerService{
     }
 
     @Override
-    public void actionServer(Token token, String serverId, Action action) {
+    public void actionServer(Token token, String serverId, ServerDto serverDto) {
         OSClientV3 os = OSFactory.clientFromToken(token);
-        os.compute().servers().action(serverId, action);
-        System.out.println(action);
+        os.compute().servers().action(serverId, Action.valueOf(serverDto.getAction()));
     }
 
     @Override

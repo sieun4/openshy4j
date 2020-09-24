@@ -1,7 +1,7 @@
 package com.openshy4j.web;
 
 
-import com.openshy4j.service.CinderService;
+import com.openshy4j.service.VolumeService;
 import com.openshy4j.service.IdentityService;
 import com.openshy4j.web.dto.CinderDto;
 import lombok.RequiredArgsConstructor;
@@ -12,37 +12,37 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-public class CinderController {
+public class VolumeController {
     private final IdentityService identityService;
-    private final CinderService cinderService;
+    private final VolumeService cinderService;
 
-    @GetMapping("/cinder")
+    @GetMapping("/volumes")
     public List<? extends Volume> getVolumes() {
         return cinderService.getVolumes(identityService.getToken());
     }
 
-    @GetMapping("/cinder/{volumeID}")
-    public Volume getVolume(@PathVariable CinderDto.getVolume dto) {
-        return cinderService.getVolume(identityService.getToken(), dto.getVolumeID());
+    @GetMapping("/volume/{volumeID}")
+    public Volume getVolume(@PathVariable String volumeID) {
+        return cinderService.getVolume(identityService.getToken(), volumeID);
     }
 
-    @PostMapping("/cinder/volume")
+    @PostMapping("/volume")
     public Volume createVolume(@RequestBody CinderDto.createVolume dto) {
         return cinderService.createVolume(identityService.getToken(), dto.getName(), dto.getDescription(), dto.getSize());
     }
 
-    @PostMapping("/cinder/boot")
+    @PostMapping("/volume/boot")
     public Volume createBootVolume(@RequestBody CinderDto.createBootVolume dto) {
         return cinderService.createBootVolume(identityService.getToken(), dto.getName(), dto.getDescription(), dto.getImageID());
     }
 
-    @DeleteMapping("/cinder/{volumeID}")
+    @DeleteMapping("/volume/{volumeID}")
     public String deleteVolume(@PathVariable String volumeID) {
         cinderService.deleteVolume(identityService.getToken(), volumeID);
         return "성공적으로 삭제되었습니다.";
     }
 
-    @PostMapping("/cinder/{volumeID}")
+    @PutMapping("/volume/{volumeID}")
     public String updateVolume(@PathVariable String volumeID, @RequestBody CinderDto.updateVolume dto) {
         dto.setVolumeID(volumeID);
         cinderService.updateVolume(identityService.getToken(), dto.getVolumeID(), dto.getName(), dto.getDescription());

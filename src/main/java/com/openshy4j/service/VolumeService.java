@@ -5,7 +5,7 @@ import org.openstack4j.model.storage.block.Volume;
 
 import java.util.List;
 
-public interface CinderService {
+public interface VolumeService {
     List<? extends Volume> getVolumes(Token token);
     Volume getVolume(Token token, String volumeID);
     Volume createVolume(Token token, String name, String description, int size);
