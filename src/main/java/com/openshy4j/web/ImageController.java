@@ -5,15 +5,10 @@ import com.openshy4j.service.ImageService;
 import com.openshy4j.web.dto.ImageCreateRequestDto;
 import java.io.IOException;
 import lombok.RequiredArgsConstructor;
-import org.openstack4j.api.Builders;
-import org.openstack4j.api.OSClient.OSClientV3;
-import org.openstack4j.openstack.OSFactory;
-import org.openstack4j.openstack.image.v2.domain.PatchOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,7 +25,6 @@ public class ImageController {
 
   private final ImageService imageService;
   private final IdentityService identityService;
-
 
 
   @GetMapping

@@ -34,7 +34,7 @@ dependencies { // 프로젝트 개발에 필요한 의존성 선언
     testCompileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
     testAnnotationProcessor("org.projectlombok:lombok")
-    compile('org.springframework.boot:spring-boot-starter-mustache')
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
     compile('org.pacesys:openstack4j-core:3.2.0')
