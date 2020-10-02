@@ -1,34 +1,60 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}" xmlns="http://www.w3.org/1999/html">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
 </head>
 <body>
-<div th:if="${message}">
-  <h3 th:text="${message}"/>
-</div>
-<form action="#" method="POST" enctype="multipart/form-data" th:action="@{/v2/images/updateImageRequest}">
-  ID : <span th:text="${image.getId()}"></span></br>
-  이름 : <input type="text" name="name" th:value="${image.getName()}"></br>
-  설명 : <input type="text" name="description" th:value="${image.getAdditionalPropertyValue('description')}"></br>
-  상태 : <span th:text="${image.getStatus()}"></span></br>
-  크기 : <span th:text="${image.getSize()}"></span></br>
-  디스크 포맷 : <span th:text="${image.getDiskFormat()}"></span></br>
-  컨테이너 포맷 : <span th:text="${image.getContainerFormat()}"></span></br>
-  생성 시점 : <span th:text="${image.getCreatedAt()}"></span></br>
-  수정 시점 : <span th:text="${image.getUpdatedAt()}"></span></br>
+<section layout:fragment="content">
+  <div th:if="${imageName}">
+    <h3 th:text="${imageName}"/>
+  </div>
+  <div class="w3-container w3-card-4 w3-light-grey">
+    <p>
+      <label>ID</label></br>
+      <input type="text" id="image-id" th:value="${image.getId()}"
+             class="w3-input w3-border-0"  disabled></p></br>
+
+    <p>
+      <label>이름</label>
+      <input type="text" id="name" th:value="${image.getName()}"
+             class="w3-input w3-border-0 w3-round"></p></br>
+    <p>
+      <label>설명</label>
+      <input type="text" id="description"
+             th:value="${image.getAdditionalPropertyValue('description')}"
+             class="w3-input w3-border-0 w3-round"></p></br>
+    <p>
+      <label>상태</label></br>
+      <span th:text="${image.getStatus()}"></span></p></br>
+    <p>
+      <label>크기</label></br>
+      <span th:text="${image.getSize()}"></span></p></br>
+    <p>
+      <label>디스크 포맷</label></br>
+      <span th:text="${image.getDiskFormat()}"></span></p></br>
+    <p>
+      <label>컨테이너 포맷</label></br>
+      <span th:text="${image.getContainerFormat()}"></span></p></br>
+
+    <p>
+      <label>생성 시점</label></br>
+      <span th:text="${image.getCreatedAt()}"></span></p></br>
+
+    <p>
+      <label>수정 시점</label></br>
+      <span th:text="${image.getUpdatedAt()}"></span></p></br>
 
 
-
-  <input type="hidden" name="imageId" th:value="${imageId}">
-  <input type="submit" value="수정">
-</form>
-<form action="#" method="POST" enctype="application/x-www-form-urlencoded" th:action="@{/v2/images/deleteImageRequest}">
-  <input type="hidden" name="imageId" th:value="${imageId}">
-  <input type="submit" value="삭제">
-</form>
-
+    <input type="hidden" name="imageId" th:value="${imageId}">
+    <button id="btn-update" class="w3-btn w3-teal w3-round">수정</button>
+    <button id="btn-delete" class="w3-btn w3-teal w3-round">삭제</button>
+  </div>
+<!--image.js 추가-->
+<script src="/js/app/image.js"></script>
+</section>
 
 </body>
+
+
 </html>

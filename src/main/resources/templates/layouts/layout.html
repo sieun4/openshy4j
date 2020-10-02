@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html
+    lagn="ko"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+  <meta charset="UTF-8"/>
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div>
+
+  <header class="w3-container w3-teal">
+    <h1>Openshy4j</h1>
+  </header>
+  <ul class="w3-navbar w3-blue">
+    <li><a href="/">Home</a></li>
+
+    <li class="w3-dropdown-hover">
+      <a href="#">Instances</a>
+      <div class="w3-dropdown-content w3-white w3-card-4">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </li>
+
+    <li class="w3-dropdown-hover">
+      <a href="#">Volumes</a>
+      <div class="w3-dropdown-content w3-white w3-card-4">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </li>
+
+    <li class="w3-dropdown-hover">
+      <a href="/v2/images">Images</a>
+      <div class="w3-dropdown-content w3-white w3-card-4">
+        <a href="/v2/images/create">생성</a>
+      </div>
+    </li>
+
+    <li class="w3-dropdown-hover">
+      <a href="#">Network</a>
+      <div class="w3-dropdown-content w3-white w3-card-4">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </div>
+    </li>
+  </ul>
+  <br>
+</div>
+
+<div class="w3-row">
+  <div class="w3-col  w3-container" style="width:20%"></div>
+  <div class="w3-col  w3-container" style="width:60%">
+    <section layout:fragment="content">
+      <!--content start-->
+
+
+      <!--content end-->
+    </section>
+  </div>
+  <div class="w3-col  w3-container" style="width:20%"></div>
+</body>
+</html>

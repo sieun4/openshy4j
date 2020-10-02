@@ -1,8 +1,9 @@
 .gradle
 .idea
 
-application-real-oauth.properties
+appAuth.properties
 
 build
 out
 d
+

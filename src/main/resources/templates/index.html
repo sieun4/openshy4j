@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layouts/layout}"
+>
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+  <!--    thymeleaf layout dialect가 contents페이지의 head태그를 layout의 head태그에 자동으로 추가합니다. -->
+  <!--    필요한 css, script 추가영역 -->
 </head>
 <body>
-index +_+
+
+<section layout:fragment="content">
+<!--  각 파일의 본문은 section 안에 써야합니다.
+    - section 밖 body 안 (X) -->
+  index page
+</section>
 </body>
 </html>
