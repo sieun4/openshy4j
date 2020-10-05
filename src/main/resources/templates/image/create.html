@@ -10,7 +10,7 @@
 
   <h2>이미지 생성</h2>
 
-  <form action="#" method="POST" enctype="multipart/form-data"
+  <form  method="POST" enctype="multipart/form-data"
         th:action="@{/v2/images}"
         class="w3-container w3-card-4 w3-light-grey">
 
@@ -62,8 +62,6 @@
     function getFileName() {
       var filePath = $('#file').val();
       var fileName = filePath.split('\\');
-      console.log("fileName is", fileName);
-
       $('#fileName').val(fileName[2]);
 
     };
