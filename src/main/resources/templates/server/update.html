@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}" xmlns="http://www.w3.org/1999/html">
+<head>
+</head>
+<body>
+<section layout:fragment="content">
+  <div th:if="${serverName}">
+    <h3 th:text="${serverName}"/>
+  </div>
+  <div class="w3-container w3-card-4 w3-light-grey">
+    <p>
+      <label>ID</label></br>
+      <span th:text="${server.getId()}"></span></p></br>
+
+    <p>
+      <label>이름</label></br>
+      <span th:text="${server.getName()}"></span></p></br>
+    <p>
+      <label>상태</label></br>
+      <span th:text="${server.getStatus()}"></span></p></br>
+      <button id="btn-status" class="w3-btn w3-teal w3-round">시작 / 중지</button>
+    <p>
+      <label>생성날자</label></br>
+      <span th:text="${server.getCreated()}"></span></p></br>
+    <p>
+      <label>image</label></br>
+      <span th:text="|${server.getImage().getName()}, ${server.getImage().getId()}|"></span></p></br>
+    <p>
+      <label>Flavor</label></br>
+      <span th:text="|${server.getFlavor().getName()}, ${server.getFlavor().getId()}|"></span></p></br>
+
+
+    <input type="hidden" id="serverId" th:value="${serverId}">
+    <input type="hidden" id="status" th:value="${server.getStatus()}">
+    <a th:href="@{/server/console/{id}(id=${server.id})}"><button class="w3-btn w3-teal w3-round">콘솔</button></a>
+    <button id="btn-delete" class="w3-btn w3-teal w3-round">삭제</button>
+  </div>
+  <!--server.js 추가-->
+  <script src="/js/app/server.js"></script>
+</section>
+
+</body>
+
+
+</html>

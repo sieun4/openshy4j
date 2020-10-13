@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}" xmlns="http://www.w3.org/1999/html">
+<head>
+</head>
+<body>
+<section layout:fragment="content">
+
+
+  <h2>서버 생성</h2>
+
+  <div class="w3-container w3-card-4 w3-light-grey">
+
+    <p>
+      <label>이름</label>
+
+      <input type="text" id="name" placeholder="서버 이름"
+             class="w3-input w3-border w3-round"></p></br>
+    <p>
+      <label>Flavor</label>
+      <input list="flavorList" id="flavor"
+             class="w3-select w3-round w3-border">
+
+      <datalist id="flavorList" autocomplete="off">
+        <th:block th:each="flavor : ${listFlavor}">
+          <option th:label="${flavor.getName()}" th:value="${flavor.getId()}">
+
+        </th:block>
+      </datalist>
+      </br>
+    </p>
+    <p>
+      <label>Image</label>
+      <input list="imageList" id="image"
+             class="w3-select w3-round w3-border">
+
+      <datalist id="imageList" autocomplete="off">
+        <th:block th:each="image : ${listImage}">
+          <option th:label="${image.getName()}" th:value="${image.getId()}">
+
+        </th:block>
+      </datalist>
+      </br>
+    </p>
+    <p>
+      <label>Network</label>
+      <input list="networkList" id="network"
+             class="w3-select w3-round w3-border">
+
+      <datalist id="networkList" autocomplete="off">
+        <th:block th:each="network : ${listNetwork}">
+          <option th:label="${network.getName()}" th:value="${network.getId()}">
+
+        </th:block>
+      </datalist>
+      </br>
+      </br>
+      <input id="btn-create" value="생성" class="w3-btn w3-teal w3-round">
+    </p>
+  </div>
+  </br>
+
+
+  </div>
+  <!--server.js 추가-->
+  <script src="/js/app/server.js"></script>
+</section>
+
+
+</body>
+
+
+</html>

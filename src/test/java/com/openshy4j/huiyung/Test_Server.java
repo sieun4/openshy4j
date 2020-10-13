@@ -30,7 +30,7 @@ public class Test_Server {
 
     @Test
     public void getServer() {
-        String serverId = "9a7258b1-08da-48e9-aebf-cf078c1adf1c";
+        String serverId = "00b2e887-45f7-45e7-ad96-cd896b3cfca5";
         Identifier domainIdentifier = Identifier.byId("default");
         OSClient.OSClientV3 os = OSFactory.builderV3()
                 .endpoint("http://192.168.0.39:5000/v3")
@@ -67,7 +67,7 @@ public class Test_Server {
 
     @Test
     public void actionServer() {
-        String serverId = "9a7258b1-08da-48e9-aebf-cf078c1adf1c";
+        String serverId = "00b2e887-45f7-45e7-ad96-cd896b3cfca5";
         Identifier domainIdentifier = Identifier.byId("default");
         OSClient.OSClientV3 os = OSFactory.builderV3()
                 .endpoint("http://192.168.0.39:5000/v3")
@@ -79,7 +79,7 @@ public class Test_Server {
 
     @Test
     public void consoleServer() {
-        String serverId = "9a7258b1-08da-48e9-aebf-cf078c1adf1c";
+        String serverId = "00b2e887-45f7-45e7-ad96-cd896b3cfca5";
         Identifier domainIdentifier = Identifier.byId("default");
         OSClient.OSClientV3 os = OSFactory.builderV3()
                 .endpoint("http://192.168.0.39:5000/v3")

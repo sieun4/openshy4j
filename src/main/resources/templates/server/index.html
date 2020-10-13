@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}" xmlns="http://www.w3.org/1999/html">
+<head>
+</head>
+<body>
+<section layout:fragment="content">
+
+  <h2>서버 목록</h2>
+  </br>
+  <ul class="w3-ul">
+
+    <li th:each="server : ${listServer}">
+      <a th:href="@{/server/{id}(id=${server.id})}"
+         style="text-decoration: none">
+        <span
+            style="color: #4b70fd"
+            th:text="${server.name}"></span>
+      </a>
+    </li>
+  </ul>
+
+
+  </div>
+</section>
+
+
+</body>
+
+
+</html>
