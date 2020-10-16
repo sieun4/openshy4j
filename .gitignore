@@ -5,5 +5,6 @@ appAuth.properties
 
 build
 out
-d
+src/main/resources/appAuth.properties
+
 
