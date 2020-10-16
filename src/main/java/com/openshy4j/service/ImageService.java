@@ -11,7 +11,6 @@ public interface ImageService {
   List<? extends Image> listImage(Token token);
   Image getImage(Token token, String iamgeId);
   void createImage(Token token, ImageCreateRequestDto dto) throws IOException;
-  void updateImage(Token token, String name, String description, String imageId);
   void deleteImage(Token token, String imageId);
 
 }

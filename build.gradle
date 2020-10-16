@@ -37,11 +37,15 @@ dependencies { // 프로젝트 개발에 필요한 의존성 선언
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
-    compile('org.pacesys:openstack4j-core:3.2.0')
     //openstack4j-httpclient를 사용해야 image update 오류가 안남.  jersey는 오류 있음.
     //issue reported at : https://github.com/ContainX/openstack4j/issues/1168
     //compile group: 'org.pacesys.openstack4j.connectors', name: 'openstack4j-httpclient', version: '3.2.0'
     compile group: 'org.pacesys.openstack4j.connectors', name: 'openstack4j-resteasy', version: '3.2.0'
+    //compile group: 'org.pacesys.openstack4j.connectors', name: 'openstack4j-okhttp', version: '3.2.0'
+    //compile group: 'org.pacesys.openstack4j.connectors', name: 'openstack4j-http-connector', version: '3.2.0'
+    //compile group: 'org.pacesys.openstack4j.connectors', name: 'openstack4j-connectors', version: '3.2.0', ext: 'pom'
+    //compile group: 'org.pacesys.openstack4j.connectors', name: 'openstack4j-jersey2', version: '3.2.0'
+
 
     implementation 'org.pacesys:openstack4j:3.2.0'
 

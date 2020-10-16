@@ -72,18 +72,6 @@ public class ImageController {
   }
 
 
-  @PutMapping
-  @ResponseStatus(value = HttpStatus.NO_CONTENT)
-  public void updateImage(@RequestBody String data) throws JsonProcessingException {
-    ObjectMapper objectMapper = new ObjectMapper();
-    Map<String,String> convertedData = objectMapper.readValue(data, Map.class);
-    System.out.printf("pringting data %s",data);
-    String name = convertedData.get("name");
-    String description = convertedData.get("description");
-    String imageId = convertedData.get("imageId");
-    System.out.printf("pringting convertedData name %s, desc %s, id %s",name,description,imageId);
-    imageService.updateImage(identityService.getToken(), name, description, imageId);
-  }
 
   @DeleteMapping
   @ResponseStatus(value = HttpStatus.NO_CONTENT)

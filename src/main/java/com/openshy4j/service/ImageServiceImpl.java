@@ -52,13 +52,7 @@ public class ImageServiceImpl implements ImageService {
     clientV3.imagesV2().upload(imageInstance.getId(), payload, imageInstance);
   }
 
-  @Override
-  @Transactional
-  public void updateImage(Token token, String name, String description, String imageId) {
-    OSClientV3 clientV3 = OSFactory.clientFromToken(token);
-    clientV3.imagesV2().update(clientV3.imagesV2().get(imageId)
-        .toBuilder().name(name).additionalProperty("description", description).build());
-  }
+
 
   @Override
   @Transactional

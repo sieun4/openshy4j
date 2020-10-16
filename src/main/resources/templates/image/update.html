@@ -13,42 +13,42 @@
     <p>
       <label>ID</label></br>
       <input type="text" id="image-id" th:value="${image.getId()}"
-             class="w3-input w3-border-0"  disabled></p></br>
+             class="w3-input w3-border-0"  disabled style="color: black;"></p></br>
 
     <p>
       <label>이름</label>
       <input type="text" id="name" th:value="${image.getName()}"
-             class="w3-input w3-border-0 w3-round"></p></br>
+             class="w3-input w3-border-0 w3-round" disabled style="color: black;"></p></br>
     <p>
       <label>설명</label>
       <input type="text" id="description"
              th:value="${image.getAdditionalPropertyValue('description')}"
-             class="w3-input w3-border-0 w3-round"></p></br>
+             class="w3-input w3-border-0 w3-round" disabled style="color: black;"></p></br>
     <p>
       <label>상태</label></br>
-      <span th:text="${image.getStatus()}"></span></p></br>
+      &nbsp;&nbsp;<span th:text="${image.getStatus()}"></span></p></br>
     <p>
       <label>크기</label></br>
-      <span th:text="${image.getSize()}"></span></p></br>
+      &nbsp;&nbsp;<span th:text="${image.getSize()}"></span></p></br>
     <p>
       <label>디스크 포맷</label></br>
-      <span th:text="${image.getDiskFormat()}"></span></p></br>
+      &nbsp;&nbsp;<span th:text="${image.getDiskFormat()}"></span></p></br>
     <p>
       <label>컨테이너 포맷</label></br>
-      <span th:text="${image.getContainerFormat()}"></span></p></br>
+      &nbsp;&nbsp;<span th:text="${image.getContainerFormat()}"></span></p></br>
 
     <p>
       <label>생성 시점</label></br>
-      <span th:text="${image.getCreatedAt()}"></span></p></br>
+      &nbsp;&nbsp;<span th:text="${image.getCreatedAt()}"></span></p></br>
 
     <p>
       <label>수정 시점</label></br>
-      <span th:text="${image.getUpdatedAt()}"></span></p></br>
+      &nbsp;&nbsp;<span th:text="${image.getUpdatedAt()}"></span></p></br>
 
 
     <input type="hidden" name="imageId" th:value="${imageId}">
-    <button id="btn-update" class="w3-btn w3-teal w3-round">수정</button>
     <button id="btn-delete" class="w3-btn w3-teal w3-round">삭제</button>
+    </br>
   </div>
 <!--image.js 추가-->
 <script src="/js/app/image.js"></script>
