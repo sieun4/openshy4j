@@ -62,7 +62,7 @@ dependencies { // 프로젝트 개발에 필요한 의존성 선언
 
 
 String dockerHubUsernameProperty = findProperty('dockerHubUsername') ?: 'gmldbd94'
-String imageName = "${dockerHubUsernameProperty}/spring-boot-api-example:$version"
+String imageName = "${dockerHubUsernameProperty}/$project.name:$version"
 
 docker {
     name imageName
