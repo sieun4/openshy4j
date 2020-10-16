@@ -76,3 +76,7 @@ dockerRun {
     ports '8081:8081'
     clean true
 }
+
+dockerPush{
+
+}
