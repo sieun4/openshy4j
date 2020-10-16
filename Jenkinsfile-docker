@@ -10,13 +10,9 @@ pipeline {
                 sh './gradlew assemble'
             }
         }
-        stage('Test') {
-            steps {
-                sh './gradlew test'
-            }
-        }
         stage('Build Docker image') {
             steps {
+                sh 'chmod +x gradlew'
                 sh './gradlew docker'
             }
         }
