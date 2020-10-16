@@ -1,3 +1,5 @@
+
+
 buildscript { // 의존성 관리를 위한 설정
     ext { // build.gradle에서 사용하는 전역변수 설정
         springBootVersion = '2.3.3.RELEASE'
@@ -8,6 +10,10 @@ buildscript { // 의존성 관리를 위한 설정
     }
     dependencies{
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+
+        //docker 실행 plugin
+        classpath("com.palantir.gradle.docker:gradle-docker:0.25.0")
+        classpath("com.palantir.gradle.docker:gradle-docker:0.25.0")
     }
 }
 
@@ -15,7 +21,8 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
-
+apply plugin: 'com.palantir.docker'
+apply plugin: 'com.palantir.docker-run'
 group 'com.openshy4j'
 version '1.0-SNAPSHOT'
 sourceCompatibility = 1.8
@@ -51,4 +58,21 @@ dependencies { // 프로젝트 개발에 필요한 의존성 선언
 
     compile group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '2.5.1'
 
+}
+
+
+String dockerHubUsernameProperty = findProperty('dockerHubUsername') ?: 'gmldbd94'
+String imageName = "${dockerHubUsernameProperty}/spring-boot-api-example:$version"
+
+docker {
+    name imageName
+    files "build/libs/${bootJar.archiveFileName.get()}"
+    buildArgs([JAR_FILE: bootJar.archiveFileName.get()])
+}
+
+dockerRun {
+    name project.name
+    image imageName
+    ports '8081:8081'
+    clean true
 }
