@@ -13,7 +13,7 @@ pipeline {
         stage('Docker run'){
             steps {
                 sh 'chmod +x gradlew'
-                sh './gradlew docker dockerRun'
+                sh './gradlew dockerRun'
             }
         }
         stage('Test') {
