@@ -1,7 +1,4 @@
 FROM openjdk:11
-#RUN curl -sSL https://get.docker.com/ | sh
-#RUN usermod -a -G docker jenkins
-#USER jenkins
 ARG JAR_FILE
 COPY ${JAR_FILE} app.jar
 
