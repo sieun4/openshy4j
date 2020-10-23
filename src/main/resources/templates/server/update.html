@@ -25,15 +25,22 @@
       <label>생성날자</label></br>
       <span th:text="${server.getCreated()}"></span></p></br>
     <p>
-      <label>image</label></br>
-      <span th:text="|${server.getImage().getName()}, ${server.getImage().getId()}|"></span></p></br>
-    <p>
       <label>Flavor</label></br>
       <span th:text="|${server.getFlavor().getName()}, ${server.getFlavor().getId()}|"></span></p></br>
+    <p>
+      <label>Image</label></br>
+      <span th:text="|${server.getImage().getName()}, ${server.getImage().getId()}|"></span></p></br>
+    <p>
+      <label>IPaddress</label></br>
+      <th:block th:each="map : ${server.getAddresses()['addresses']}">
+        <span th:text="${server.getAddresses()['addresses'][map.key][0].getAddr()}"></span>
+      </th:block>
 
 
     <input type="hidden" id="serverId" th:value="${serverId}">
     <input type="hidden" id="status" th:value="${server.getStatus()}">
+      <br>
+      <br>
     <a th:href="@{/server/console/{id}(id=${server.id})}"><button class="w3-btn w3-teal w3-round">콘솔</button></a>
     <button id="btn-delete" class="w3-btn w3-teal w3-round">삭제</button>
   </div>

@@ -19,41 +19,38 @@
              class="w3-input w3-border w3-round"></p></br>
     <p>
       <label>Flavor</label>
-      <input list="flavorList" id="flavor"
-             class="w3-select w3-round w3-border">
 
-      <datalist id="flavorList" autocomplete="off">
+      <select id="flavor" autocomplete="off" class="w3-select w3-border w3-round">
         <th:block th:each="flavor : ${listFlavor}">
-          <option th:label="${flavor.getName()}" th:value="${flavor.getId()}">
+          <option th:text="${flavor.getName()}" th:value="${flavor.getId()}">
 
         </th:block>
-      </datalist>
+      </select>
+      <input type="text" id="flavorId" disabled class="w3-border-0 w3-input" th:value="'ID : ' + ${listFlavor.get(0).getId()}">
       </br>
     </p>
     <p>
       <label>Image</label>
-      <input list="imageList" id="image"
-             class="w3-select w3-round w3-border">
 
-      <datalist id="imageList" autocomplete="off">
+      <select id="image" autocomplete="off" class="w3-select w3-border w3-round">
         <th:block th:each="image : ${listImage}">
-          <option th:label="${image.getName()}" th:value="${image.getId()}">
+          <option th:text="${image.getName()}" th:value="${image.getId()}">
 
         </th:block>
-      </datalist>
+      </select>
+      <input type="text" id="imageId" disabled class="w3-border-0 w3-input" th:value="'ID : ' + ${listImage.get(0).getId()}">
       </br>
     </p>
     <p>
       <label>Network</label>
-      <input list="networkList" id="network"
-             class="w3-select w3-round w3-border">
 
-      <datalist id="networkList" autocomplete="off">
+      <select id="network" autocomplete="off" class="w3-select w3-border w3-round">
         <th:block th:each="network : ${listNetwork}">
-          <option th:label="${network.getName()}" th:value="${network.getId()}">
+          <option th:text="${network.getName()}" th:value="${network.getId()}">
 
         </th:block>
-      </datalist>
+      </select>
+      <input type="text" id="networkId" disabled class="w3-border-0 w3-input" th:value="'ID : ' + ${listNetwork.get(0).getId()}">
       </br>
       </br>
       <input id="btn-create" value="생성" class="w3-btn w3-teal w3-round">

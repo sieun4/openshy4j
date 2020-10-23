@@ -10,6 +10,16 @@ var server = {
     $('#btn-status').on('click', function () {
       _this.toggle_status();
     });
+    $('#flavor').on('change', function (e) {
+      _this.show_id(e, "flavorId");
+    });
+    $('#image').on('change', function (e) {
+      _this.show_id(e, "imageId");
+    });
+    $('#network').on('change', function (e) {
+      _this.show_id(e, "networkId");
+    });
+
   },
   create : function () {
     var data = {
@@ -73,6 +83,9 @@ var server = {
       alert(JSON.stringify(error));
     });
   },
+  show_id : function (e, inputId) {
+    $('#'+inputId).val("ID : " + e.target.value)
+  }
 
 };
 
