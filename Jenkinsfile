@@ -13,6 +13,7 @@ pipeline {
         stage('Docker run'){
             steps {
                 sh 'chmod +x gradlew'
+                sh 'docker rm -f openshy4j'
                 sh './gradlew dockerRun'
             }
         }
