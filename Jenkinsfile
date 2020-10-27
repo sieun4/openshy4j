@@ -8,6 +8,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'chmod +x gradlew'
+                sh './gradlew assemble'
             }
         }
         stage('Test') {
@@ -18,7 +19,7 @@ pipeline {
         stage('Docker run'){
             steps {
                 sh 'chmod +x gradlew'
-                sh './gradlew dockerRun'
+                sh './gradlew docker dockerRun'
             }
         }
 
